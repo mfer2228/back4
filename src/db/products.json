@@ -4,21 +4,26 @@
     "title": "Gato blanco",
     "description": "Tengo una igualita en casa",
     "code": "PROD-1",
-    "price": 10000.0,
+    "price": 10000,
     "status": true,
     "stock": 1,
     "category": "gato",
-    "thumbnails": ["imagen1.jpg", "imagen2.jpg"]
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
   },
   {
     "id": 2,
     "title": "Wilson",
     "description": "No puedo llevarte, estás tan gordo que si te subo al avión el avión se cae",
     "code": "PROD-2",
-    "price": 200.0,
+    "price": 200,
     "status": true,
     "stock": 5,
     "category": "gato",
-    "thumbnails": ["imagen3.jpg"]
+    "thumbnails": [
+      "imagen3.jpg"
+    ]
   }
 ]

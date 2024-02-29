@@ -22,7 +22,9 @@ class ProductManager {
         return product || null;
     } catch (error) {
         console.log(error);
+        alert(error);
         throw new Error("Esa id no da producto");
+        
     }
 }
 
@@ -36,6 +38,7 @@ async getAllProducts(limit = null) {
         return products;
     } catch (error) {
         console.log(error);
+        alert (error)
         throw new Error("Error obteniendo los productos");
     }
 }
@@ -46,15 +49,19 @@ async saveProduct(newProduct) {
         const requiredParams = ["title", "description", "code", "price", "stock"];
         const missingParams = requiredParams.filter(param => !(param in newProduct));
         if (missingParams.length > 0) {
-            throw new Error(`Faltan parámetros obligatorios: ${missingParams.join(", ")}`);
+          let errorr=  new Error(`Faltan parámetros obligatorios: ${missingParams.join(", ")}`);
+          alert(errorr)   
+          throw new errorr     
         }
 
         let products = await this.getAllProducts();
         // Verificar si ya existe un producto con el mismo código
         const existingProductIndex = products.findIndex((product) => product.code === newProduct.code);
         if (existingProductIndex !== -1) {
+            alert(Error);
             throw new Error(`Ya existe un producto con el código ${newProduct.code}`);
-        }
+         
+    }
         // Generar un nuevo ID
         const lastId = products.length > 0 ? products[products.length - 1].id : 0;
         newProduct.id = lastId + 1;
@@ -65,6 +72,7 @@ async saveProduct(newProduct) {
         return newProduct;
     } catch (error) {
         console.log(error);
+        alert(error);
         throw new Error("Error al guardar el producto");
     }
 }
@@ -85,6 +93,7 @@ async saveProduct(newProduct) {
           }
       } catch (error) {
           console.log(`Error al borrar el producto con ID ${id}: ${error}`);
+          alert(error);
           throw new Error("Error al borrar el producto");
       }
   }
@@ -100,11 +109,13 @@ async saveProduct(newProduct) {
                   await fs.promises.writeFile(this.productsFilePath, JSON.stringify(products, null, 2));
                   return products[index];
               } else {
+                  alert(error);
                   throw new Error(`No se encontró ningún producto con el ID ${id}`);
               }
           }
       } catch (error) {
           console.log(error);
+          alert(error);
           throw new Error("Error al actualizar el producto");
       }
   }

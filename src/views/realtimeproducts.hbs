@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>New Product</title>
+	<title>Nuevo producto</title>
 	<link rel="stylesheet" href="/css/realtimeproducts.css">
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -12,16 +12,16 @@
 
 <body>
 	<form id="product-form">
-		<label for="title">Title:</label>
+		<label for="title">Nombre:</label>
 		<input type="text" id="title" name="title"><br>
 
-		<label for="description">Description:</label>
+		<label for="description">Descripción:</label>
 		<input type="text" id="description" name="description"><br>
 
-		<label for="code">Code:</label>
+		<label for="code">Código:</label>
 		<input type="text" id="code" name="code"><br>
 
-		<label for="price">Price:</label>
+		<label for="price">Precio:</label>
 		<input type="number" id="price" name="price"><br>
 
 		<label for="stock">Stock:</label>
@@ -29,13 +29,15 @@
 
 		<label for="category">Category:</label>
 		<select id="category" name="category">
-			<option value="electronics">Electronics</option>
-			<option value="clothing">Clothing</option>
-			<option value="books">Books</option>
+			<option value="Gato">Gatos</option>
+			<option value="Perro">Perros</option>
+			<option value="other">Otro Animal</option>
 		</select><br>
 
 		<button type="submit">Submit</button>
 	</form>
+
+	<button class="verprod">Ver productos</button>
 
 	<ul id="product-list"></ul>
 
